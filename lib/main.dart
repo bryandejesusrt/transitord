@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'pages/login.dart'; // Importa la página de inicio de sesión
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      home: LoginPage(), // Usa LoginPage como la página de inicio
     );
   }
 }
