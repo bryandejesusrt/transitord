@@ -37,14 +37,14 @@ class _NoticiasPageState extends State<NoticiasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Noticias Digeset'),
+        title: const Text('Noticias Digeset'),
       ),
       body: noticias == null
-          ? Center(
+          ? const Center(
         child: CircularProgressIndicator(),
       )
           : Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Expanded(
@@ -54,10 +54,10 @@ class _NoticiasPageState extends State<NoticiasPage> {
                   final noticia = noticias![index];
                   final featuredMediaUrl = noticia['_links']['wp:featuredmedia'][0]['href'];
 
-                  return Container(
-                    width: 400.0, // Establece el ancho máximo para cada noticia
+                  return SizedBox(
+                    width: 400.0,
                     child: Card(
-                      margin: EdgeInsets.all(8.0),
+                      margin: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -83,7 +83,7 @@ class _NoticiasPageState extends State<NoticiasPage> {
                                       borderRadius: BorderRadius.circular(8.0),
                                       color: Colors.grey[300],
                                     ),
-                                    child: Center(child: CircularProgressIndicator()),
+                                    child: const Center(child: CircularProgressIndicator()),
                                   );
                                 } else if (snapshot.hasError) {
                                   return Container(
@@ -92,7 +92,7 @@ class _NoticiasPageState extends State<NoticiasPage> {
                                       borderRadius: BorderRadius.circular(8.0),
                                       color: Colors.grey[300],
                                     ),
-                                    child: Icon(Icons.error),
+                                    child: const Icon(Icons.error),
                                   );
                                 } else {
                                   final Map<String, dynamic> mediaData = jsonDecode(snapshot.data!.body);
@@ -110,20 +110,20 @@ class _NoticiasPageState extends State<NoticiasPage> {
                               },
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 noticia['title']?['rendered'] ?? '',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 noticia['excerpt']?['rendered'] ?? '',
-                                style: TextStyle(fontSize: 16.0),
+                                style: const TextStyle(fontSize: 16.0),
                               ),
                             ),
                           ],
@@ -139,7 +139,7 @@ class _NoticiasPageState extends State<NoticiasPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _refreshNoticias,
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }
@@ -155,12 +155,11 @@ class DetallesNoticiaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles de la Noticia'),
+        title: const Text('Detalles de la Noticia'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Mostrar la imagen en la página de detalles
           FutureBuilder(
             future: http.get(Uri.parse(imageUrl)),
             builder: (context, snapshot) {
@@ -171,7 +170,7 @@ class DetallesNoticiaPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                     color: Colors.grey[300],
                   ),
-                  child: Center(child: CircularProgressIndicator()),
+                  child: const Center(child: CircularProgressIndicator()),
                 );
               } else if (snapshot.hasError) {
                 return Container(
@@ -180,7 +179,7 @@ class DetallesNoticiaPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                     color: Colors.grey[300],
                   ),
-                  child: Icon(Icons.error),
+                  child: const Icon(Icons.error),
                 );
               } else {
                 final Map<String, dynamic> mediaData = jsonDecode(snapshot.data!.body);
@@ -197,25 +196,23 @@ class DetallesNoticiaPage extends StatelessWidget {
               }
             },
           ),
-          // Puedes mostrar los detalles de la noticia aquí
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Text(
               noticia['title']?['rendered'] ?? '',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Text(
               noticia['content']?['rendered'] ?? '',
-              style: TextStyle(fontSize: 16.0),
+              style: const TextStyle(fontSize: 16.0),
             ),
           ),
-          // ... puedes agregar más detalles según tus necesidades
         ],
       ),
     );
