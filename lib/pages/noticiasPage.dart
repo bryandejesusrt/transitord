@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:html/parser.dart';
 
 class NoticiasPage extends StatefulWidget {
   @override
@@ -17,7 +18,8 @@ class _NoticiasPageState extends State<NoticiasPage> {
   }
 
   Future<void> cargarNoticias() async {
-    final response = await http.get(Uri.parse('https://remolacha.net/wp-json/wp/v2/posts?search=digeset'));
+    final response =
+    await http.get(Uri.parse('https://remolacha.net/wp-json/wp/v2/posts?search=digeset'));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);
@@ -31,6 +33,11 @@ class _NoticiasPageState extends State<NoticiasPage> {
 
   Future<void> _refreshNoticias() async {
     await cargarNoticias();
+  }
+
+  String _parseHtmlString(String htmlString) {
+    final document = parse(htmlString);
+    return document.body!.text;
   }
 
   @override
@@ -52,7 +59,8 @@ class _NoticiasPageState extends State<NoticiasPage> {
                 itemCount: noticias!.length,
                 itemBuilder: (context, index) {
                   final noticia = noticias![index];
-                  final featuredMediaUrl = noticia['_links']['wp:featuredmedia'][0]['href'];
+                  final featuredMediaUrl =
+                  noticia['_links']['wp:featuredmedia'][0]['href'];
 
                   return SizedBox(
                     width: 400.0,
@@ -95,7 +103,8 @@ class _NoticiasPageState extends State<NoticiasPage> {
                                     child: const Icon(Icons.error),
                                   );
                                 } else {
-                                  final Map<String, dynamic> mediaData = jsonDecode(snapshot.data!.body);
+                                  final Map<String, dynamic> mediaData =
+                                  jsonDecode(snapshot.data!.body);
                                   final imageUrl = mediaData['source_url'];
                                   return ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -122,7 +131,7 @@ class _NoticiasPageState extends State<NoticiasPage> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                noticia['excerpt']?['rendered'] ?? '',
+                                _parseHtmlString(noticia['excerpt']?['rendered'] ?? ''),
                                 style: const TextStyle(fontSize: 16.0),
                               ),
                             ),
@@ -150,6 +159,11 @@ class DetallesNoticiaPage extends StatelessWidget {
   final String imageUrl;
 
   DetallesNoticiaPage({required this.noticia, required this.imageUrl});
+
+  String _parseHtmlString(String htmlString) {
+    final document = parse(htmlString);
+    return document.body!.text;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +223,7 @@ class DetallesNoticiaPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              noticia['content']?['rendered'] ?? '',
+              _parseHtmlString(noticia['content']?['rendered'] ?? ''),
               style: const TextStyle(fontSize: 16.0),
             ),
           ),
