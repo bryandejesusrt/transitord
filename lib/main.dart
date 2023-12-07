@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:transitord/pages/HoroscopoPage.dart';
+import 'package:transitord/pages/clima.dart';
+import 'pages/login.dart'; // Importa la página de inicio de sesión
+import 'pages/noticiasPage.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -109,3 +113,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//noticiasPage
+//ClimaScreen
+//HoroscopoPage
+//LoginPage
