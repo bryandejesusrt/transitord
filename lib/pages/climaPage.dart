@@ -4,15 +4,16 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:transitord/pages/WeatherModel.dart';
 import 'package:transitord/pages/http.dart';
+import 'package:transitord/widgets/DrawerMenu.dart';
 
 class ClimaScreen extends StatefulWidget {
-  const ClimaScreen({Key? key}) : super(key: key);
+  static const String routeName = '/climaPage';
 
   @override
-  State<ClimaScreen> createState() => _HomeScreenState();
+  State<ClimaScreen> createState() => _ClimaScreenState();
 }
 
-class _HomeScreenState extends State<ClimaScreen> {
+class _ClimaScreenState extends State<ClimaScreen> {
   Weather client = Weather();
   WeatherModel? data;
   Future<void> getData() async {
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<ClimaScreen> {
             ),
           ),
         ),
+        drawer: DrawerMenu(),
         body: FutureBuilder(
           future: getData(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -67,6 +69,16 @@ class _HomeScreenState extends State<ClimaScreen> {
                       style: const TextStyle(
                           fontSize: 50, fontWeight: FontWeight.bold),
                     ),
+                    Text(
+                      'Clima: ${data!.weatherMain}',
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      '${data!.weatherDescription}',
+                      style: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.w400),
+                    ),
                     const Divider(
                       color: Colors.black,
                     ),
@@ -74,7 +86,7 @@ class _HomeScreenState extends State<ClimaScreen> {
                       height: 20,
                     ),
                     const Text(
-                      'Addition information',
+                      'Información Adicional',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
                     ),
@@ -89,10 +101,9 @@ class _HomeScreenState extends State<ClimaScreen> {
                             child: Row(
                               children: [
                                 const Text(
-                                  'Pressure',
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                  'Térmica:',
+                                  style: TextStyle(fontWeight: FontWeight.w400),
                                 ),
-                                const Spacer(),
                                 Text('${data!.pressure}'),
                               ],
                             ),
@@ -104,11 +115,24 @@ class _HomeScreenState extends State<ClimaScreen> {
                             child: Row(
                               children: [
                                 const Text(
-                                  'Feels Like',
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                  'Humedad:',
+                                  style: TextStyle(fontWeight: FontWeight.w400),
                                 ),
-                                const Spacer(),
-                                Text('${data!.feelsLike}'),
+                                Text('${data!.humidity}'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  'Viento:',
+                                  style: TextStyle(fontWeight: FontWeight.w400),
+                                ),
+                                Text('${data!.windSpeed}'),
                               ],
                             ),
                           ),

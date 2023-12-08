@@ -1,119 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:transitord/pages/HoroscopoPage.dart';
-import 'package:transitord/pages/clima.dart';
-import 'pages/login.dart'; // Importa la página de inicio de sesión
-import 'pages/noticiasPage.dart';
+import 'package:transitord/pages/AplicarMultaPage.dart';
+import 'package:transitord/pages/climaPage.dart';
+import 'package:transitord/pages/conductorLicenciaPage.dart';
+import 'package:transitord/pages/homePage.dart';
+import 'package:transitord/pages/infoAppPage.dart';
+import 'package:transitord/pages/loginPage.dart';
+import 'package:transitord/pages/mapaMultasPage.dart';
+import 'package:transitord/pages/multasRegistradasPages.dart';
+import 'package:transitord/pages/noticiasDigesettPage.dart';
+import 'package:transitord/pages/tarifarioMultasPages.dart';
+import 'package:transitord/pages/vehiculoPlacaPage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  static const String home = Home.routeName;
+  static const String tarifarioMultas = TarifarioMultas.routeName;
+  static const String conductorLicencia = ConsultarConductorLicencia.routeName;
+  static const String vehiculoPlaca = ConsultarVehiculoPlaca.routeName;
+  static const String infoApp = InfoApp.routeName;
+  static const String aplicarMulta = AplicarMulta.routeName;
+  static const String multasRegistradas = MultasRegistradas.routeName;
+  static const String mapaMultas = MapaMultas.routeName;
+  static const String climasPage = ClimaScreen.routeName;
+  static const String noticiasPage = NoticiasPage.routeName;
+  static const String loginPage = LoginPage.routeName;
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Transito RD'),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const UserAccountsDrawerHeader(
-                // <-- SEE HERE
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 50, 54, 84)),
-                accountName: Text(
-                  "Bryan De Jesus Rosa Tavarez",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                accountEmail: Text(
-                  "bryandejesusrt@gmail.com",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                currentAccountPicture: FlutterLogo(),
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.home,
-                ),
-                title: const Text('Inicio'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.payments,
-                ),
-                title: const Text('Tarifario de multas'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.not_listed_location_sharp,
-                ),
-                title: const Text('Consulta de conductor por licencia'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.local_police_outlined,
-                ),
-                title: const Text('Aplicar Multa'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.not_listed_location_sharp,
-                ),
-                title: const Text('Mapa de multas'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.newspaper_rounded,
-                ),
-                title: const Text('Noticias'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.info,
-                ),
-                title: const Text('Acerda de la app'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+      title: 'Transitord',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      routes: {
+        home: (context) => Home(),
+        tarifarioMultas: (context) => TarifarioMultas(),
+        conductorLicencia: (context) => ConsultarConductorLicencia(),
+        vehiculoPlaca: (context) => ConsultarVehiculoPlaca(),
+        aplicarMulta: (context) => AplicarMulta(),
+        multasRegistradas: (context) => MultasRegistradas(),
+        mapaMultas: (context) => MapaMultas(),
+        infoApp: (context) => InfoApp(),
+        climasPage: (context) => ClimaScreen(),
+        noticiasPage: (context) => NoticiasPage(),
+        loginPage: (context) => LoginPage(),
+      },
+      home: Home(),
     );
   }
 }
-//noticiasPage
-//ClimaScreen
-//HoroscopoPage
-//LoginPage
