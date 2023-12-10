@@ -62,28 +62,28 @@ class _MyScreenState extends State<TarifarioMultas> {
             SizedBox(
               height: 2.h,
             ),
-            TextFormField(
-              controller: licenciaController,
-              decoration: InputDecoration(
-                hintText: 'Ingrese la multa que quiere consultar',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _isLoading = true;
-                });
-                fetchData();
-              },
-              child: Text('Buscar'),
-            ),
+            // TextFormField(
+            //   controller: licenciaController,
+            //   decoration: InputDecoration(
+            //     hintText: 'Ingrese la multa que quiere consultar',
+            //     prefixIcon: Icon(Icons.search),
+            //     border: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     setState(() {
+            //       _isLoading = true;
+            //     });
+            //     fetchData();
+            //   },
+            //   child: Text('Buscar'),
+            // ),
             SizedBox(
               height: 1.h,
             ),
