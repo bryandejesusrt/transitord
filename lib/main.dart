@@ -6,6 +6,7 @@ import 'package:transitord/pages/homePage.dart';
 import 'package:transitord/pages/infoAppPage.dart';
 import 'package:transitord/pages/loginPage.dart';
 import 'package:transitord/pages/mapaMultasPage.dart';
+import 'package:transitord/pages/multasRegistradasDetalles.dart';
 import 'package:transitord/pages/multasRegistradasPages.dart';
 import 'package:transitord/pages/noticiasDigesettPage.dart';
 import 'package:transitord/pages/tarifarioMultasPages.dart';
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
   static const String climasPage = ClimaScreen.routeName;
   static const String noticiasPage = NoticiasPage.routeName;
   static const String loginPage = LoginPage.routeName;
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,6 +51,8 @@ class MyApp extends StatelessWidget {
         climasPage: (context) => ClimaScreen(),
         noticiasPage: (context) => NoticiasPage(),
         loginPage: (context) => LoginPage(),
+        '/multasregistradasdetalles': (context) => multasRegistradasDetalles(
+            Id: ModalRoute.of(context)!.settings.arguments.toString()),
       },
       home: Login.status ? Home() : LoginPage(),
     );
