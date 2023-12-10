@@ -177,6 +177,7 @@ class _MyScreenState extends State<multasRegistradasDetalles> {
                 Text('foto: $foto'),
                 Text('audio: $audio'),
                 Text('longitud: $longitud'),
+                Text('latitud: $latitud'),
                 Text('placa_Vehiculo: $placa_Vehiculo'),
                 Text('cedula_infractor: $cedula_infractor'),
                 Text('fecha: $fecha'),
