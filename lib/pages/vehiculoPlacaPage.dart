@@ -1,10 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:transitord/pages/utils/hexColorsUse.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import 'package:transitord/widgets/DrawerMenu.dart';
 
-class ConsultarVehiculoPlaca extends StatelessWidget {
+class ConsultarVehiculoPlaca extends StatefulWidget {
   static const String routeName = '/vehiculoPlaca';
+  @override
+  _MyScreenState createState() => _MyScreenState();
+}
+
+class _MyScreenState extends State<ConsultarVehiculoPlaca> {
+  TextEditingController placaController = TextEditingController();
+  bool _isLoading = false;
+  String mensaje =
+      'Introduce el numero de placa incluyendo numeros y letras y luego pula en buscar.';
+  var data = null;
+
+  Future<void> fetchData() async {
+    final response = await http.get(Uri.parse(
+        'https://transitord20231207185629.azurewebsites.net/api/v1/Vehiculo/Vehiculo/plate/${placaController.text}'));
+    if (response.statusCode == 200) {
+      print(json.decode(response.body));
+      setState(() {
+        data = json.decode(response.body);
+        _isLoading = false;
+      });
+    } else {
+      setState(() {
+        mensaje = 'Vehiculo no encontrado.';
+        _isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +56,7 @@ class ConsultarVehiculoPlaca extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Titulo con color negro
-            Text(
+            const Text(
               'Consulta de Multas',
               style: TextStyle(
                 fontSize: 24,
@@ -35,7 +65,7 @@ class ConsultarVehiculoPlaca extends StatelessWidget {
               ),
             ),
             // Subtitulo con color más opaco
-            Text(
+            const Text(
               'Ingrese la placa del vehículo a consultar',
               style: TextStyle(
                 fontSize: 16,
@@ -46,6 +76,7 @@ class ConsultarVehiculoPlaca extends StatelessWidget {
               height: 2.h,
             ),
             TextFormField(
+              controller: placaController,
               decoration: InputDecoration(
                 hintText: 'Ingrese la placa',
                 prefixIcon: Icon(Icons.search),
@@ -54,66 +85,56 @@ class ConsultarVehiculoPlaca extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            // Lista de multas
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5, // Reemplaza con la cantidad real de multas
-                itemBuilder: (context, index) {
-                  return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    child: ListTile(
-                      title: const Text(
-                        'Motivo de la Multa',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      subtitle: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Descripción corta de la multa',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'Fecha y hora de la multa',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                      trailing: ElevatedButton(
-                        onPressed: () {
-                          // Navegar a la pantalla de detalle de la multa
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetalleMultaScreen(),
-                            ),
-                          );
-                        },
-                        child: Text('Detalle de la Multa'),
-                      ),
-                    ),
-                  );
-                },
-              ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _isLoading = true;
+                });
+                fetchData();
+              },
+              child: Text('Buscar'),
             ),
+            SizedBox(
+              height: 2.h,
+            ),
+            _isLoading
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : data != null
+                    ? Center(
+                        child: Card(
+                          margin: EdgeInsets.all(16.0),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Placa: ${data['placa']}'),
+                                Text('Chasis: ${data['chasis']}'),
+                                Text('Marca: ${data['marca']}'),
+                                Text('Modelo: ${data['modelo']}'),
+                                Text('Color: ${data['color']}'),
+                                Text('Fabricacion: ${data['fabricacion']}'),
+                                Text('Estatus: ${data['estatus']}'),
+                                Text('Multas: ${data['multas']}'),
+                                Text(
+                                    'Nombre Propietario: ${data['nombre_Propietario']}'),
+                                Text(
+                                    'Direccion Propietario: ${data['direccion_Propietario']}'),
+                                Text(
+                                    'Cedula Propietario: ${data['cedula_Propietario']}'),
+                                Text('Tipo vehiculo: ${data['tipo_vehiculo']}'),
+                                Text('Tipo Emision: ${data['tipoEmision']}'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    : Text(mensaje),
           ],
         ),
       ),
