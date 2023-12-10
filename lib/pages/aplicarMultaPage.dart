@@ -463,7 +463,7 @@ class _AplicarMultaState extends State<AplicarMulta> {
                               decoration: InputDecoration(
                                 prefixIcon: const Icon(
                                   Icons.location_on_outlined,
-                                  color: Colors.black54,
+                                  color: Color.fromARGB(137, 125, 113, 113),
                                 ),
                                 border: const OutlineInputBorder(
                                   // width: 0.0 produces a thin "hairline" border
