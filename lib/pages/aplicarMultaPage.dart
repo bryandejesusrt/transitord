@@ -9,7 +9,7 @@ import 'package:image_input/image_input.dart';
 import 'package:latlong2/latlong.dart';
 
 class AplicarMulta extends StatefulWidget {
-  static const String routeName = '/home';
+  static const String routeName = '/aplicarmultas';
   @override
   State<AplicarMulta> createState() => _AplicarMultaState();
 }
@@ -42,7 +42,7 @@ class _AplicarMultaState extends State<AplicarMulta> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 4.h,
+                      height: 20,
                     ),
                     Align(
                       alignment: Alignment.center,
@@ -55,7 +55,7 @@ class _AplicarMultaState extends State<AplicarMulta> {
                           icon: Image(
                             image: const AssetImage(
                                 'lib/assets/images/cedulaexplicacion.png'),
-                            height: 25.h,
+                            height: 30,
                           ),
                           onPressed: () async {
                             // Navigator.of(context).push(MaterialPageRoute(
@@ -88,7 +88,7 @@ class _AplicarMultaState extends State<AplicarMulta> {
                       ),
                     ),
                     SizedBox(
-                      height: 6.h,
+                      height: 15,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(18.0),
