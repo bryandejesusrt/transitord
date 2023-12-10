@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
   static const String climasPage = ClimaScreen.routeName;
   static const String noticiasPage = NoticiasPage.routeName;
   static const String loginPage = LoginPage.routeName;
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
