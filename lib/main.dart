@@ -9,6 +9,7 @@ import 'package:transitord/pages/mapaMultasPage.dart';
 import 'package:transitord/pages/multasRegistradasPages.dart';
 import 'package:transitord/pages/noticiasDigesettPage.dart';
 import 'package:transitord/pages/tarifarioMultasPages.dart';
+import 'package:transitord/pages/utils/Login.dart';
 import 'package:transitord/pages/vehiculoPlacaPage.dart';
 
 void main() {
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         noticiasPage: (context) => NoticiasPage(),
         loginPage: (context) => LoginPage(),
       },
-      home: Home(),
+      home: Login.status ? Home() : LoginPage(),
     );
   }
 }
