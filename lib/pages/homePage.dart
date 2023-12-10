@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart';
 import 'package:flutter/material.dart';
+import 'package:transitord/pages/utils/hexColorsUse.dart';
 import 'package:transitord/widgets/DrawerMenu.dart';
 import 'package:transitord/widgets/noticias.dart';
 
@@ -52,16 +53,23 @@ class _HomePageState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text(
+          "Inicio",
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.start,
+        ),
+        backgroundColor: Color.fromARGB(255, 43, 77, 66),
+        elevation: 10,
+        shadowColor: Color.fromARGB(255, 43, 77, 66),
       ),
       drawer: DrawerMenu(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Card con saludo y horóscopo
             Card(
+              color: '#359a5c'.toColor(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -69,7 +77,7 @@ class _HomePageState extends State<Home> {
                     padding: const EdgeInsets.all(16),
                     child: Text(
                       '$saludo Bryan Rosa',
-                      style: const TextStyle(fontSize: 24),
+                      style: const TextStyle(fontSize: 24, color: Colors.white),
                     ),
                   ),
                   const Padding(
@@ -97,22 +105,22 @@ class _HomePageState extends State<Home> {
             const SizedBox(height: 16),
 
             // Card con imagen y temperatura
-            Card(
+            const Card(
               child: Row(
                 children: [
-                  // Columna para la imagen
-                  Expanded(
-                    flex: 1,
-                    child: Image.network(
-                      'https://resources.diariolibre.com/images/imagenes/2014/22/456581-focus-0-0-375-240.jpg',
-                      height: 100,
-                      width: 100,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
+                  // // Columna para la imagen
+                  // Expanded(
+                  //   flex: 1,
+                  //   child: Image.network(
+                  //     'https://resources.diariolibre.com/images/imagenes/2014/22/456581-focus-0-0-375-240.jpg',
+                  //     height: 100,
+                  //     width: 100,
+                  //   ),
+                  // ),
+                  // const SizedBox(width: 16),
 
                   // Columna para la temperatura y estado del clima
-                  const Expanded(
+                  Expanded(
                     flex: 2,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
