@@ -5,6 +5,7 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Color.fromRGBO(31, 184, 161, 1),
       child: Column(
         children: <Widget>[
           Expanded(
@@ -14,7 +15,7 @@ class DrawerMenu extends StatelessWidget {
                 _buildDrawerHeader(),
                 _buildDrawerItem(
                     icon: Icons.home,
-                    text: 'Home',
+                    text: 'Inicio',
                     onTap: () =>
                         {Navigator.pushReplacementNamed(context, MyApp.home)}),
                 const Divider(),
