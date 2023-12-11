@@ -111,15 +111,36 @@ class _MyScreenState extends State<ConsultarConductorLicencia> {
                             padding: EdgeInsets.all(16.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text('nombre: ${data['nombre']}'),
-                                Text('apellido: ${data['apellido']}'),
-                                Text('cedula: ${data['cedula']}'),
-                                Text('foto: ${data['foto']}'),
+                                ListTile(
+                                  leading: Icon(Icons.person),
+                                  title: Text(
+                                      '${data['nombre']} ${data['apellido']}'),
+                                  subtitle: Text('Cedula: ${data['cedula']}'),
+                                ),
                                 Text(
-                                    'fecha_Nacimiento: ${data['fecha_Nacimiento']}'),
-                                Text('direccion: ${data['direccion']}'),
-                                Text('telefono: ${data['telefono']}'),
+                                    'Fecha de Nacimiento: ${data['fecha_Nacimiento']}'),
+                                Text('Dirección: ${data['direccion']}'),
+                                Text('Teléfono: ${data['telefono']}'),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    TextButton(
+                                      child: Text('EDITAR'),
+                                      onPressed: () {
+                                        // Acción cuando se presiona el botón EDITAR
+                                      },
+                                    ),
+                                    SizedBox(width: 8),
+                                    TextButton(
+                                      child: Text('ELIMINAR'),
+                                      onPressed: () {
+                                        // Acción cuando se presiona el botón ELIMINAR
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),

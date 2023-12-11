@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transitord/pages/utils/Login.dart';
 
 class GlobalVar {
   static String link =
@@ -9,6 +10,9 @@ class GlobalVar {
   static const unselectedNavBarColor = Colors.black87;
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundCOlor = Color(0xffebecee);
-
-  static String username = "";
+  static int agenteId = Login.agenteId;
+  static String nombre = "";
+  static String apellido = "";
+  static String cedula = "";
+  static String usuario = "";
 }
