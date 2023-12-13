@@ -37,12 +37,12 @@ Enviará la ubicación del agente para mostrar el clima actual en esa zona media
 **Horóscopo Diario:**
 Proporcionará el horóscopo diario para el agente.
 
-### Integrantes del Grupo de Desarrollo:**
+## Integrantes del Grupo de Desarrollo:**
 
 **Bryan De Jesus Rosa Tavarez(2021-2239)
 Yoniber Encarnacion(2021-1442)**
 
-**Enlaces:**
+## Enlaces:
 
 -Codigo: [Repositorio de Códigos FrontEnd:]([https://transitord20231207185629.azurewebsites.net/swagger/index.html](https://github.com/Bryan-r15/transitord)),  [Repositorio de Códigos BackEnd:](https://github.com/Bryan-r15/TransitordAPI).
 -APK: [APK de la Aplicación:](https://drive.google.com/file/d/1T8BDoUdTnb0-i7-S2IGagtLara672mr6/view)
@@ -59,6 +59,54 @@ Yoniber Encarnacion(2021-1442)**
 
 
 ![Pantalla4 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/902d85af-4530-4056-8dde-e882a3e6e527)
+
+## Inicialización del Proyecto Flutter
+
+Este archivo describe los pasos necesarios para inicializar el proyecto Flutter después de clonarlo o descargarlo.
+
+### Requisitos Previos
+
+- [Flutter](https://flutter.dev/docs/get-started/install) debe estar instalado en tu máquina.
+- Asegúrate de tener todas las dependencias necesarias instaladas. Puedes ejecutar el siguiente comando:
+
+  ```bash
+  
+  flutter doctor
+  ```
+  Asegúrate de solucionar cualquier problema identificado por flutter doctor antes de continuar.
+
+### Pasos de Inicialización
+**Descargar el Proyecto:**
+Clona el repositorio o descarga el proyecto desde GitHub.
+
+```bash
+git clone https://github.com/tu-usuario/tu-proyecto-flutter.git
+```
+
+### Limpiar el Proyecto:
+Ejecuta el siguiente comando para limpiar el proyecto.
+```bash
+lutter clean
+```
+
+### Obtener Dependencias:
+Ejecuta el siguiente comando para obtener todas las dependencias del proyecto.
+```
+flutter pub get
+```
+Esto descargará todas las dependencias definidas en el archivo **pubspec.yaml.**
+
+### Configuración Adicional (si es necesario):
+Realiza cualquier configuración adicional necesaria según las instrucciones del proyecto.
+
+## Ejecutar la Aplicación
+Una vez completados los pasos anteriores, puedes ejecutar la aplicación Flutter con el siguiente comando:
+``
+bash
+
+flutter run
+``
+Esto iniciará la aplicación en el emulador o dispositivo conectado.
 
 
 A new Flutter project.
