@@ -1,4 +1,8 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:lottie/lottie.dart';
+import 'package:material_dialogs/dialogs.dart';
+import 'package:material_dialogs/widgets/buttons/icon_button.dart';
 import 'package:record/record.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -123,7 +127,7 @@ class _AplicarMultaState extends State<AplicarMulta> {
           elevation: 10,
           shadowColor: Colors.black87,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         drawer: DrawerMenu(),
         body: _isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -726,14 +730,31 @@ class _AplicarMultaState extends State<AplicarMulta> {
       setState(() {
         _isLoading = false;
       });
-      Fluttertoast.showToast(
-          msg: 'Multa aplicada correctamente',
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP_RIGHT,
-          timeInSecForIosWeb: 2,
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-          fontSize: 15.0);
+      Dialogs.materialDialog(
+        color: const Color.fromARGB(255, 255, 255, 255),
+        msg:
+            'La multa se ha aplicado correctamente, gracias por su colaboracion.',
+        title: 'Datos guardados',
+        lottieBuilder: Lottie.asset(
+          './lib/assets/images/cong_example.json',
+          fit: BoxFit.contain,
+        ),
+        dialogWidth: kIsWeb ? 0.3 : null,
+        context: context,
+        actions: [
+          IconsButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            text: 'Cerrar',
+            iconData: Icons.done,
+            color: Colors.blue,
+            textStyle:
+                TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),
+            iconColor: const Color.fromARGB(255, 255, 255, 255),
+          ),
+        ],
+      );
     } else {
       setState(() {
         _isLoading = false;

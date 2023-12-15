@@ -5,7 +5,7 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color.fromRGBO(31, 184, 161, 1),
+      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
       child: Column(
         children: <Widget>[
           Expanded(

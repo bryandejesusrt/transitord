@@ -47,6 +47,8 @@ dependencies:
   audioplayers: ^5.2.0
   record: ^5.0.1
   permission_handler: ^11.0.1
+  lottie: ^2.1.0
+  material_dialogs: 
 
 dev_dependencies:
   flutter_test:

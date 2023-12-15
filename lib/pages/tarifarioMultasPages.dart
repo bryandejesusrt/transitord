@@ -12,9 +12,6 @@ class TarifarioMultas extends StatefulWidget {
 }
 
 class _MyScreenState extends State<TarifarioMultas> {
-  bool _isLoading = false;
-  TextEditingController licenciaController = TextEditingController();
-
   Future<List<Map<String, dynamic>>> fetchData() async {
     final response = await http.get(Uri.parse(
         'https://transitord20231207185629.azurewebsites.net/api/v1/MultasTipo/MultasTipos'));
@@ -29,10 +26,9 @@ class _MyScreenState extends State<TarifarioMultas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Consulta Tarifarío de Multas",
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.start,
+          style: TextStyle(fontSize: 15.sp, color: Colors.white),
         ),
         backgroundColor: '#359a5c'.toColor(),
         elevation: 10,
@@ -40,53 +36,27 @@ class _MyScreenState extends State<TarifarioMultas> {
       ),
       drawer: DrawerMenu(),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'Buscar en el Tarifarío de Multas',
+            Text(
+              'Tarifarío de Multas',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
-            const Text(
-              'Ingrese el nombre de la infracción',
+            Text(
+              'Aqui debajo se muestra el tarifarío de multas que se aplican en el sistema de transporte público de la ciudad de Santo Domingo R.D.',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w400,
                 color: Colors.grey,
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
-            // TextFormField(
-            //   controller: licenciaController,
-            //   decoration: InputDecoration(
-            //     hintText: 'Ingrese la multa que quiere consultar',
-            //     prefixIcon: Icon(Icons.search),
-            //     border: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(10),
-            //     ),
-            //   ),
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     setState(() {
-            //       _isLoading = true;
-            //     });
-            //     fetchData();
-            //   },
-            //   child: Text('Buscar'),
-            // ),
-            SizedBox(
-              height: 1.h,
-            ),
+            SizedBox(height: 4.h),
             Expanded(
               child: FutureBuilder<List<Map<String, dynamic>>>(
                 future: fetchData(),
@@ -108,10 +78,44 @@ class _MyScreenState extends State<TarifarioMultas> {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         final multa = snapshot.data![index];
-                        return ListTile(
-                          title: Text('ID: ${multa['id']}'),
-                          subtitle:
-                              Text('Descripción: ${multa['descripcion']}'),
+                        return Card(
+                          elevation: 3,
+                          margin: EdgeInsets.symmetric(vertical: 8),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'ID: ${multa['id']}',
+                                  style: TextStyle(fontSize: 14.sp),
+                                ),
+                                Text(
+                                  'Descripción: ${multa['descripcion']}',
+                                  style: TextStyle(fontSize: 13.sp),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.help),
+                                      onPressed: () {
+                                        // Acción cuando se presiona el botón EDITAR
+                                      },
+                                    ),
+                                    SizedBox(width: 8),
+                                    TextButton(
+                                      child: Text('CONSULTAR'),
+                                      onPressed: () {
+                                        // Acción cuando se presiona el botón ELIMINAR
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     );

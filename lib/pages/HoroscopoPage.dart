@@ -91,4 +91,34 @@ class Zodiaco {
   static String getNombreSigno(String signo) {
     return signos.indexOf(signo).toString();
   }
+
+  static getSugerencia(String _signo) {
+    switch (_signo) {
+      case "Aries":
+        return "Ten cuidado con tu impulsividad. No tomes decisiones importantes a la ligera.";
+      case "Tauro":
+        return "No te dejes llevar por las apariencias. Mira más allá de lo superficial.";
+      case "Géminis":
+        return "No te disperses. Concéntrate en una cosa a la vez.";
+      case "Cáncer":
+        return "No te aferres al pasado. Deja ir lo que ya no te sirve.";
+      case "Leo":
+        return "No seas arrogante. Sé humilde y escucha a los demás.";
+      case "Virgo":
+        return "No seas tan crítico contigo mismo. Sé más amable y comprensivo.";
+      case "Libra":
+        return "No te dejes llevar por la opinión de los demás. Haz lo que creas que es correcto.";
+      case "Escorpio":
+        return "No te dejes llevar por tus emociones. Sé racional y piensa con la cabeza.";
+      case "Sagitario":
+        return "No seas tan impulsivo. Sé más precavido y planifica tus acciones.";
+      case "Capricornio":
+        return "No te dejes llevar por el trabajo. Tómate un tiempo para relajarte y divertirte.";
+      case "Acuario":
+        return "No seas tan independiente. Deja que los demás te ayuden.";
+      case "Piscis":
+        return "No te dejes llevar por tus sueños. Sé más realista y ponte los pies en la tierra.";
+    }
+    return "No se encontró el signo zodiacal";
+  }
 }

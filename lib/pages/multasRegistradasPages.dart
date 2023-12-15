@@ -25,7 +25,7 @@ class _MyScreenState extends State<MultasRegistradas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles de Multas'),
+        title: Text('Multas registradas. '),
       ),
       drawer: DrawerMenu(),
       body: FutureBuilder<List<Map<String, dynamic>>>(

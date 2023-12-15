@@ -1,5 +1,14 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:transitord/pages/gobal_vars.dart';
+import 'package:transitord/pages/utils/Login.dart';
+
+String nombre = "";
+String apellido = "";
+String usuario = "";
+String cedulla = "";
 
 class ProfilePageUser extends StatefulWidget {
   @override
@@ -12,6 +21,30 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
   @override
   void initState() {
     super.initState();
+    fetchDataAgente();
+  }
+
+  Future<void> fetchDataAgente() async {
+    var url = Uri.parse(
+        'https://transitord20231207185629.azurewebsites.net/api/v1/Agente/Agente/${Login.agenteId}');
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+
+      nombre = data['nombre'];
+      apellido = data['apellido'];
+      usuario = data['usuario'];
+      cedulla = data['cedula'];
+
+      // Puedes imprimir los valores para verificar
+      print('Nombre: $nombre');
+      print('Apellido: $apellido');
+      print('Usuario: $usuario');
+      print('Cédula: $cedulla');
+    } else {
+      print('Error en la llamada a la API');
+    }
   }
   // void toast(String msg) {
   //   Fluttertoast.showToast(
@@ -119,11 +152,19 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
                       height: 3.h,
                     ),
                     Text(
-                      "Admin",
+                      "${nombre} ${apellido}",
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Amet(primer teniente))",
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
                     SizedBox(
@@ -177,8 +218,8 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
                                       ),
                                       leading: const Icon(Icons.email),
                                       title: const Text("Correo Electronico"),
-                                      subtitle:
-                                          Text("admindigesett@digesett.gob.do"),
+                                      subtitle: Text(
+                                          "$nombre$apellido@digesett.gob.do"),
                                     ),
                                   ),
                                   SizedBox(
@@ -199,8 +240,9 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
                                         vertical: 8,
                                       ),
                                       leading: const Icon(Icons.phone),
-                                      title: const Text("Numero de Telefono"),
-                                      subtitle: Text("8093456789"),
+                                      title: const Text(
+                                          "Numero de Telefono / cedula"),
+                                      subtitle: Text("$cedulla"),
                                       // onTap: ,
                                       // trailing: InkWell(child: Icon(Icons.edit, color: Colors.blueGrey,)),
                                     ),
