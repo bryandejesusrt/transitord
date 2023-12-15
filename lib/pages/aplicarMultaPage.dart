@@ -8,12 +8,10 @@ import 'package:sizer/sizer.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:transitord/pages/gobal_vars.dart';
-import 'package:transitord/pages/mapaModalPage.dart';
 import 'package:transitord/pages/utils/Login.dart';
 import 'package:transitord/pages/utils/hexColorsUse.dart';
 import 'package:transitord/widgets/DrawerMenu.dart';
 import 'package:image_input/image_input.dart';
-import 'package:latlong2/latlong.dart';
 
 class AplicarMulta extends StatefulWidget {
   static const String routeName = '/aplicarmultas';

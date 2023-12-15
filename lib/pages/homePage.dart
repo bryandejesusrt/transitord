@@ -4,7 +4,6 @@ import 'package:html/parser.dart';
 import 'package:flutter/material.dart';
 import 'package:transitord/pages/utils/hexColorsUse.dart';
 import 'package:transitord/widgets/DrawerMenu.dart';
-import 'package:transitord/widgets/noticias.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = '/home';
