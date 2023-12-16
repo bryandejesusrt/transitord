@@ -44,15 +44,23 @@ APK: [APK de la Aplicación:](https://drive.google.com/file/d/1T8BDoUdTnb0-i7-S2
 API: [API del Projectot:](https://transitord20231207185629.azurewebsites.net/swagger/index.html)</br>
 </br></br>
 
-![Pantalla1 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/35d26b81-ebd1-4bb5-aec7-45f848af5158)</br></br>
+## Capturas de Pantalla  
 
-![Pantalla2 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/d04843e1-1a07-4b85-9a97-78031f129073)</br></br>
+>[!NOTE]
+>Aquí se muestra un listado de de todas las pantallas desarrollados.
 
+| Pantalla Login |  Pantalla Principal |
+|-----------|-----------|
+| ![Pantalla1 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/35d26b81-ebd1-4bb5-aec7-45f848af5158)</br></br> | ![Pantalla2 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/d04843e1-1a07-4b85-9a97-78031f129073)</br></br>
+
+| Pantalla Seccion de Noticias |  Pantalla Noticias |
+|-----------|-----------|
+|  ![Pantalla4 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/902d85af-4530-4056-8dde-e882a3e6e527)</br></br> | ![Pantalla3 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/2b479965-5614-4ec7-8c4c-b0df5de3365a)</br></br>
+| Pantalla Perfil del usuario 
 ![Pantalla5 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/3d1abe8e-e778-49b3-8e2f-ebc21fa8c7ed)</br></br>
 
-![Pantalla3 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/2b479965-5614-4ec7-8c4c-b0df5de3365a)</br></br>
 
-![Pantalla4 proyecto final](https://github.com/Bryan-r15/transitord/assets/71520172/902d85af-4530-4056-8dde-e882a3e6e527)</br></br>
+
 
 ## Inicialización del Proyecto Flutter
 
