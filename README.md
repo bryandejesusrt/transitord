@@ -29,11 +29,11 @@ Desarrollar una aplicación móvil utilizando Flutter para agentes de tránsito 
 
 ## Integrantes del Grupo de Desarrollo:
 
-**Bryan De Jesus Rosa Tavarez(2021-2239)
-Yoniber Encarnacion(2021-1442)
-Sander Arias (2020-10182)
-Frankli Joel Valdez (2022-0678)
-**
+
+- [Bryan De Jesus Rosa Tavarez(2021-2239)]([https://docs.flutter.dev/get-started/codelab](https://github.com/bryandejesusrt))
+- [Yoniber Encarnacion(2021-1442)]([https://docs.flutter.dev/get-started/codelab](https://github.com/yoniberplay))
+- [Sander Arias (2020-10182))]([https://docs.flutter.dev/get-started/codelab](https://github.com/HabunoGD1809))
+- [Frankli Joel Valdez (2022-0678)]([https://docs.flutter.dev/get-started/codelab](https://github.com/SanderArias))
 
 ## Enlaces:
 
