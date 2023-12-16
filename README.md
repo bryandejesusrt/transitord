@@ -4,7 +4,8 @@
 
 ## Objetivo del Proyecto:
 Desarrollar una aplicación móvil utilizando Flutter para agentes de tránsito en la República Dominicana. La aplicación permitirá a los agentes gestionar multas de tráfico, acceder a información vehicular, consultar datos de conductores y obtener información relevante como noticias de la DIGESET, estado del clima y horóscopo.
-
+> [!NOTE]
+> Proyecto final de la materia Introducción al Desarrollo de Aplicaciones Móviles 
 ## Funcionalidades Principales:
 
 - **Inicio de Sesión:** Los agentes deberán iniciar sesión para acceder al menú principal de la aplicación.
