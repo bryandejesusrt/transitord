@@ -41,7 +41,7 @@ Desarrollar una aplicación móvil utilizando Flutter para agentes de tránsito 
 Codigo: [FrontEnd:]([https://transitord20231207185629.azurewebsites.net/swagger/index.html](https://github.com/Bryan-r15/transitord))</br>
 [ BackEnd:](https://github.com/Bryan-r15/TransitordAPI).</br>
 APK: [APK de la Aplicación:](https://drive.google.com/file/d/1T8BDoUdTnb0-i7-S2IGagtLara672mr6/view)</br>
-API: [API del Projectot:](https://transitord20231207185629.azurewebsites.net/swagger/index.html)</br>
+API: [API del Projecto:](https://transitord20231207185629.azurewebsites.net/swagger/index.html)</br>
 </br></br>
 
 ## Capturas de Pantalla  
